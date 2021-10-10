@@ -1,9 +1,11 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
+# https://leetcode.com/problems/add-two-numbers
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Sol1:
     def getValueFromList(self, lst: [ListNode]):
         runner = lst
         stack = []
@@ -17,8 +19,7 @@ class Solution:
         list1[:0] = string
         return list1
     
-    # solution 1
-    def addTwoNumbers1(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def solve(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         num1 = self.getValueFromList(l1);
         num2 = self.getValueFromList(l2);
         result = self.convertToStringList(str(num1+num2));
@@ -26,9 +27,9 @@ class Solution:
         for item in result:
             node = ListNode(int(item), node);
         return node;
-    
-    # solution 2: more efficient runtime
-    def addTwoNumbers(self, l1, l2):
+
+class Sol2: #more efficient runtime
+    def solve(self, l1, l2):
         carry = 0;
         res = n = ListNode(0);
         while l1 or l2 or carry:
