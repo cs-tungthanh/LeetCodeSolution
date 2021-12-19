@@ -24,3 +24,18 @@ def searchInsert(nums: List[int], target: int) -> int:
         else:
             end = middle - 1
     return start
+
+# https://leetcode.com/problems/first-bad-version
+# def isBadVersion(version) -> boolean:
+def isBadVersion(verion):
+    return verion == 5
+
+def firstBadVersion(n):
+    start, end = 1, n
+    while (start < end):
+        pivot = start + (end - start) // 2
+        if (isBadVersion(pivot)):
+            end = pivot
+        else:
+            start = pivot + 1
+    return start
